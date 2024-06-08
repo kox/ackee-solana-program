@@ -178,7 +178,9 @@ export function ellipsify(str = '', len = 4) {
 
 export function useTransactionToast() {
   return (signature: string) => {
-    toast.success(
+    const dismiss = () => toast.dismiss(toastId);
+
+    const toastId = toast.success(
       <div className={'text-center'}>
         <div className="text-lg">Transaction sent</div>
         <ExplorerLink
@@ -186,7 +188,16 @@ export function useTransactionToast() {
           label={'View Transaction'}
           className="btn btn-xs btn-primary"
         />
-      </div>
+        <button
+          onClick={dismiss}
+          style={{ marginLeft: '16px', background: 'red', color: 'white', border: 'none', padding: '4px 8px', cursor: 'pointer' }}
+        >
+          Close
+        </button>
+      </div>,
+      {
+        duration: Infinity,
+      }
     );
   };
 }

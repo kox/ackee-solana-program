@@ -5,7 +5,7 @@ import { ExplorerLink } from '../cluster/cluster-ui';
 import { WalletButton } from '../solana/solana-provider';
 import { AppHero, ellipsify } from '../ui/ui-layout';
 import { useBasicProgram } from './basic-data-access';
-import { BasicCreate, BasicProgram } from './basic-ui';
+import { BasicCreate, BasicJobList, BasicProgram } from './basic-ui';
 
 export default function BasicFeature() {
   const { publicKey } = useWallet();
@@ -25,7 +25,8 @@ export default function BasicFeature() {
         </p>
         <BasicCreate />
       </AppHero>
-      <BasicProgram />
+      {/* <BasicProgram /> */}
+      <BasicJobList />
     </div>
   ) : (
     <div className="max-w-4xl mx-auto">
